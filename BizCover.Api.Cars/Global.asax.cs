@@ -9,6 +9,7 @@ namespace BizCover.Api.Cars
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            UnityConfig.RegisterComponents();
         }
     }
 }
