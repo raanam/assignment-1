@@ -44,7 +44,7 @@ namespace BizCover.Api.Cars.Controllers
 
         [ValidateModel]
         [System.Web.Mvc.HttpPost]
-        public Task<Car> Create(AddCarRequest request)
+        public Task<Car> Post(AddCarRequest request)
         {
             return _addCarService.AddCar(request);
         }
