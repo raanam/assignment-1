@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BizCover.Api.Cars.Services.PurchasePriceCalculator
+namespace BizCover.Api.Cars.Services.Discount
 {
-    public interface IPurchasePriceResponse
+    public interface IDiscountCalculatorResponse
     {
         IReadOnlyList<Repository.Cars.Car> Cars { get; }
 
-        decimal PurchasePrice { get; }
+        decimal Discount { get; }
     }
 }

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NSubstitute;
 using FluentAssertions;
+using BizCover.Api.Cars.CarRepositoryCache;
 
 namespace BizCover.Api.Cars.Tests.GetAllCars
 {
@@ -20,7 +21,7 @@ namespace BizCover.Api.Cars.Tests.GetAllCars
 
         private GetAllCarsService _sut;
 
-        private ICarRepository _carRepository;
+        private ICarRepositoryCache _carRepository;
 
 
         [SetUp]
@@ -28,7 +29,7 @@ namespace BizCover.Api.Cars.Tests.GetAllCars
         {
             _fixture = (Fixture)new Fixture().Customize(new AutoNSubstituteCustomization());
 
-            _carRepository = _fixture.Freeze<ICarRepository>();
+            _carRepository = _fixture.Freeze<ICarRepositoryCache>();
 
             _sut = _fixture.Create<GetAllCarsService>();
         }

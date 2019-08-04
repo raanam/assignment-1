@@ -1,6 +1,7 @@
 using BizCover.Api.Cars.CarRepositoryCache;
 using BizCover.Api.Cars.Services.AddCar;
 using BizCover.Api.Cars.Services.GetAllCars;
+using BizCover.Api.Cars.Services.Discount;
 using BizCover.Repository.Cars;
 using System.Runtime.Caching;
 using System.Web.Http;
@@ -34,6 +35,9 @@ namespace BizCover.Api.Cars
             container.RegisterType<IAddCarRequestMapper, AddCarRequestMapper>();
             container.RegisterType<IGetAllCarsService, GetAllCarsService>();
             container.RegisterType<ICache, Cache>();
+            container.RegisterType<IDiscountCalculatorService, DiscountCalculatorService>();
+            container.RegisterType<IDiscountCalculator, DiscountForQuantity>("DiscountForQuantity");
+            container.RegisterType<IDiscountCalculator, DiscountForManufacturedYear>("DiscountForManufacturedYear");
         }
     }
 }

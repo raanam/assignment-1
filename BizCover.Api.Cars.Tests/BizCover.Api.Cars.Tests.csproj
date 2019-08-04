@@ -89,6 +89,9 @@
     <Compile Include="AddCar\AddCarRequestTests.cs" />
     <Compile Include="AddCar\AddCarServiceTests.cs" />
     <Compile Include="Common\YearValidatiorTest.cs" />
+    <Compile Include="Discount\DiscountForCostTests.cs" />
+    <Compile Include="Discount\DiscountForManufacturedYearTests.cs" />
+    <Compile Include="Discount\DiscountForQuantityTests.cs" />
     <Compile Include="GetAllCars\GetAllCarsServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

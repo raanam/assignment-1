@@ -10,6 +10,7 @@ using AutoFixture.AutoNSubstitute;
 using BizCover.Api.Cars.Services.AddCar;
 using BizCover.Repository.Cars;
 using NSubstitute;
+using BizCover.Api.Cars.CarRepositoryCache;
 
 namespace BizCover.Api.Cars.Tests.AddCar
 {
@@ -24,6 +25,8 @@ namespace BizCover.Api.Cars.Tests.AddCar
 
         private IAddCarRequestMapper _requestMapper;
 
+        private ICarRepositoryCache _carRepositoryCache;
+
         [SetUp]
         public void Setup()
         {
@@ -31,6 +34,7 @@ namespace BizCover.Api.Cars.Tests.AddCar
 
             _carRepository = _fixture.Freeze<ICarRepository>();
             _requestMapper = _fixture.Freeze<IAddCarRequestMapper>();
+            _carRepositoryCache = _fixture.Freeze<ICarRepositoryCache>();
 
             _sut = _fixture.Create<AddCarService>();
         }
@@ -51,6 +55,7 @@ namespace BizCover.Api.Cars.Tests.AddCar
 
             // Assert.
             response.Id.Should().Be(carId);
+            _carRepositoryCache.Received(1).InvalidateCache();
         }
     }
 }
