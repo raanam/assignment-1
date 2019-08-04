@@ -77,6 +77,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,6 +90,7 @@
     <Compile Include="AddCar\AddCarRequestTests.cs" />
     <Compile Include="AddCar\AddCarServiceTests.cs" />
     <Compile Include="Common\YearValidatiorTest.cs" />
+    <Compile Include="Discount\DiscountCalculatorServiceTests.cs" />
     <Compile Include="Discount\DiscountForCostTests.cs" />
     <Compile Include="Discount\DiscountForManufacturedYearTests.cs" />
     <Compile Include="Discount\DiscountForQuantityTests.cs" />

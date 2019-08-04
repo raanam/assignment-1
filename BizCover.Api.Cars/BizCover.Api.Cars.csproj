@@ -142,6 +142,7 @@
     <Compile Include="Services\AddCar\IAddCarRequest.cs" />
     <Compile Include="Services\AddCar\IAddCarRequestMapper.cs" />
     <Compile Include="Services\AddCar\IAddCarService.cs" />
+    <Compile Include="Services\Discount\DiscountCalculatorResponse.cs" />
     <Compile Include="Services\GetAllCars\GetAllCarsService.cs" />
     <Compile Include="Services\GetAllCars\IGetAllCarsService.cs" />
     <Compile Include="Services\Discount\DiscountForCost.cs" />

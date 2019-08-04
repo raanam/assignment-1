@@ -38,6 +38,7 @@ namespace BizCover.Api.Cars
             container.RegisterType<IDiscountCalculatorService, DiscountCalculatorService>();
             container.RegisterType<IDiscountCalculator, DiscountForQuantity>("DiscountForQuantity");
             container.RegisterType<IDiscountCalculator, DiscountForManufacturedYear>("DiscountForManufacturedYear");
+            container.RegisterType<IDiscountCalculator, DiscountForCost>("DiscountForCost");
         }
     }
 }

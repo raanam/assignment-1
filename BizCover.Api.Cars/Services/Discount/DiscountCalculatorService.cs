@@ -21,9 +21,24 @@ namespace BizCover.Api.Cars.Services.Discount
             _discountCalculators = discountCalculators;
         }
 
-        public Task<IDiscountCalculatorResponse> CalculateDiscount(IReadOnlyList<int> carIds)
+        public async Task<IDiscountCalculatorResponse> CalculateDiscount(IReadOnlyList<int> carIds)
         {
-            throw new NotImplementedException();
+            var allCars =  await _carRepositoryCache.GetAllCars();
+            var resolvedCars = allCars.Where(c => carIds.Contains(c.Id)).ToList();
+
+            if (resolvedCars.Count != carIds.Count())
+            {
+                throw new HttpRequestValidationException("Invalid Ids in the input");
+            }
+
+            var totalDiscount = _discountCalculators
+                .Sum(c => c.CalculateDiscount(resolvedCars));
+
+            return new DiscountCalculatorResponse
+            {
+                Discount = totalDiscount,
+                Cars = resolvedCars
+            };
         }
     }
 }

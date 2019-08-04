@@ -18,9 +18,9 @@ namespace BizCover.Api.Cars.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
-        public ActionResult Post(List<int> carIdsToPurchase)
+        public Task<IDiscountCalculatorResponse> Post(List<int> carIdsToPurchase)
         {
-            return null;
+            return _purchasePriceCalculatorService.CalculateDiscount(carIdsToPurchase);
         }
     }
 }
