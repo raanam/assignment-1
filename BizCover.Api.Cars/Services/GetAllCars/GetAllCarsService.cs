@@ -1,4 +1,5 @@
-﻿using BizCover.Repository.Cars;
+﻿using BizCover.Api.Cars.CarRepositoryCache;
+using BizCover.Repository.Cars;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,16 @@ namespace BizCover.Api.Cars.Services.GetAllCars
 {
     public class GetAllCarsService : IGetAllCarsService
     {
-        private ICarRepository _carRepository;
+        private ICarRepositoryCache _carRepositoryCache;
 
-        public GetAllCarsService(ICarRepository carRepository)
+        public GetAllCarsService(ICarRepositoryCache carRepositoryCache)
         {
-            _carRepository = carRepository;
+            _carRepositoryCache = carRepositoryCache;
         }
 
         public async Task<IReadOnlyList<Repository.Cars.Car>> GetAllCars()
         {
-            return await _carRepository.GetAllCars();
+            return await _carRepositoryCache.GetAllCars();
         }
     }
 }

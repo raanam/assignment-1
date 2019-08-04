@@ -1,6 +1,8 @@
+using BizCover.Api.Cars.CarRepositoryCache;
 using BizCover.Api.Cars.Services.AddCar;
 using BizCover.Api.Cars.Services.GetAllCars;
 using BizCover.Repository.Cars;
+using System.Runtime.Caching;
 using System.Web.Http;
 using Unity;
 using Unity.WebApi;
@@ -20,13 +22,18 @@ namespace BizCover.Api.Cars
             
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 
+            var memoryCache = new MemoryCache("CarsCache");
+            container.RegisterInstance<MemoryCache>(memoryCache);
+
             // Repositories.
             container.RegisterType<ICarRepository, CarRepository>();
+            container.RegisterType<ICarRepositoryCache, CarRepositoryCache.CarRepositoryCache>();
 
             // Services.
             container.RegisterType<IAddCarService, AddCarService>();
             container.RegisterType<IAddCarRequestMapper, AddCarRequestMapper>();
             container.RegisterType<IGetAllCarsService, GetAllCarsService>();
+            container.RegisterType<ICache, Cache>();
         }
     }
 }
