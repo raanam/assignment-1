@@ -1,4 +1,5 @@
 using BizCover.Api.Cars.Services.AddCar;
+using BizCover.Api.Cars.Services.GetAllCars;
 using BizCover.Repository.Cars;
 using System.Web.Http;
 using Unity;
@@ -25,6 +26,7 @@ namespace BizCover.Api.Cars
             // Services.
             container.RegisterType<IAddCarService, AddCarService>();
             container.RegisterType<IAddCarRequestMapper, AddCarRequestMapper>();
+            container.RegisterType<IGetAllCarsService, GetAllCarsService>();
         }
     }
 }

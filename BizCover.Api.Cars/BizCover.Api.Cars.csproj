@@ -135,6 +135,8 @@
     <Compile Include="Services\AddCar\IAddCarRequest.cs" />
     <Compile Include="Services\AddCar\IAddCarRequestMapper.cs" />
     <Compile Include="Services\AddCar\IAddCarService.cs" />
+    <Compile Include="Services\GetAllCars\GetAllCarsService.cs" />
+    <Compile Include="Services\GetAllCars\IGetAllCarsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />

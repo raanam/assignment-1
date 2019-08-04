@@ -6,16 +6,19 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Net;
 using BizCover.Api.Cars.Common;
+using BizCover.Api.Cars.Services.GetAllCars;
 
 namespace BizCover.Api.Cars.Controllers
 {
     public class CarsController : ApiController
     {
         private IAddCarService _addCarService;
+        private IGetAllCarsService _getAllCarsService;
 
-        public CarsController(IAddCarService addCarService)
+        public CarsController(IAddCarService addCarService, IGetAllCarsService getAllCarsService)
         {
             _addCarService = addCarService;
+            _getAllCarsService = getAllCarsService;
         }
 
         // Below is just the sample code from the Visual Studio Web Api Template. 
@@ -26,9 +29,9 @@ namespace BizCover.Api.Cars.Controllers
         // The repository BizCover.Repository.Cars can be found in ../packages/BizCover.Repository.Cars.1.0.0/BizCover.Repository.Cars.dll. You can restructure this solution as you like.
 
         // GET api/values
-        public IEnumerable<string> Get()
+        public  Task<IReadOnlyList<Car>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _getAllCarsService.GetAllCars();
         }
 
         [ValidateModel]
