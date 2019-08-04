@@ -2,7 +2,7 @@
 {
     public interface IAddCarRequest
     {
-        string Color { get;  }
+        string Colour { get;  }
 
         string CountryManufactured { get;  }
 

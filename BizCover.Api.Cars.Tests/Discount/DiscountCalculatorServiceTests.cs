@@ -13,6 +13,7 @@ using FluentAssertions;
 using BizCover.Api.Cars.CarRepositoryCache;
 using BizCover.Api.Cars.Services.Discount;
 using System.Web;
+using System.Web.Http;
 
 namespace BizCover.Api.Cars.Tests.Discount
 {
@@ -53,7 +54,7 @@ namespace BizCover.Api.Cars.Tests.Discount
             _carRepositoryCache.GetAllCars().Returns(cars);
 
             // Act.
-            Assert.ThrowsAsync<HttpRequestValidationException>(async () => await _sut.CalculateDiscount(new List<int> { 1, 2, 3, 4 }));
+            Assert.ThrowsAsync<HttpResponseException>(async () => await _sut.CalculateDiscount(new List<int> { 1, 2, 3, 4 }));
         }
 
         [Test]

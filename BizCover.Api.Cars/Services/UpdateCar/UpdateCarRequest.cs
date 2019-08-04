@@ -1,10 +1,14 @@
 ﻿using BizCover.Api.Cars.Common;
 using System.ComponentModel.DataAnnotations;
 
-namespace BizCover.Api.Cars.Services.AddCar
+namespace BizCover.Api.Cars.Services.UpdateCar
 {
-    public class AddCarRequest : IAddCarRequest
+    public class UpdateCarRequest : IUpdateCarRequest
     {
+        [Required]
+        [Range(1, int.MaxValue)]
+        public int Id { get; set; }
+
         [Required()]
         [StringLength(50)]
         public string Colour { get; set; }

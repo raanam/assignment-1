@@ -27,7 +27,7 @@ namespace BizCover.Api.Cars.Tests.AddCar
 
             var car = _sut.Map(addCarRequest);
 
-            car.Colour.Should().Be(addCarRequest.Color);
+            car.Colour.Should().Be(addCarRequest.Colour);
             car.Make.Should().Be(addCarRequest.Make);
             car.Model.Should().Be(addCarRequest.Model);
             car.Year.Should().Be(addCarRequest.Year);

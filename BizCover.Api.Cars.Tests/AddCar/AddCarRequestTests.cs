@@ -19,7 +19,7 @@ namespace BizCover.Api.Cars.Tests.AddCar
         {
             var request = new AddCarRequest
             {
-                Color = args[0]?.ToString(),
+                Colour = args[0]?.ToString(),
                 CountryManufactured = args[1]?.ToString(),
                 Make = args[2]?.ToString(),
                 Model = args[3]?.ToString(),

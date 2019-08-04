@@ -7,18 +7,26 @@ using System.Web.Mvc;
 using System.Net;
 using BizCover.Api.Cars.Common;
 using BizCover.Api.Cars.Services.GetAllCars;
+using BizCover.Api.Cars.Services.UpdateCar;
 
 namespace BizCover.Api.Cars.Controllers
 {
     public class CarsController : ApiController
     {
         private IAddCarService _addCarService;
+
         private IGetAllCarsService _getAllCarsService;
 
-        public CarsController(IAddCarService addCarService, IGetAllCarsService getAllCarsService)
+        private IUpdateCarService _updateCarService;
+
+        public CarsController(
+            IAddCarService addCarService, 
+            IGetAllCarsService getAllCarsService, 
+            IUpdateCarService updateCarService)
         {
             _addCarService = addCarService;
             _getAllCarsService = getAllCarsService;
+            _updateCarService = updateCarService;
         }
 
         // Below is just the sample code from the Visual Studio Web Api Template. 
@@ -39,6 +47,13 @@ namespace BizCover.Api.Cars.Controllers
         public Task<Car> Create(AddCarRequest request)
         {
             return _addCarService.AddCar(request);
+        }
+
+        [ValidateModel]
+        [System.Web.Mvc.HttpPut]
+        public Task<Car> Put(UpdateCarRequest request)
+        {
+            return _updateCarService.Update(request);
         }
     }
 }

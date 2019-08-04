@@ -12,7 +12,7 @@ namespace BizCover.Api.Cars.Services.AddCar
         {
             return new Car
             {
-                Colour = request.Color,
+                Colour = request.Colour,
                 CountryManufactured = request.CountryManufactured,
                 Make = request.Make,
                 Model = request.Model,

@@ -7,6 +7,7 @@ using System.Runtime.Caching;
 using System.Web.Http;
 using Unity;
 using Unity.WebApi;
+using BizCover.Api.Cars.Services.UpdateCar;
 
 namespace BizCover.Api.Cars
 {
@@ -39,6 +40,8 @@ namespace BizCover.Api.Cars
             container.RegisterType<IDiscountCalculator, DiscountForQuantity>("DiscountForQuantity");
             container.RegisterType<IDiscountCalculator, DiscountForManufacturedYear>("DiscountForManufacturedYear");
             container.RegisterType<IDiscountCalculator, DiscountForCost>("DiscountForCost");
+            container.RegisterType<IUpdateCarService, UpdateCarService>();
+            container.RegisterType<IUpdateCarRequestMapper, UpdateCarRequestMapper>();
         }
     }
 }

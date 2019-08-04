@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 
 namespace BizCover.Api.Cars.Services.Discount
 {
@@ -28,7 +29,7 @@ namespace BizCover.Api.Cars.Services.Discount
 
             if (resolvedCars.Count != carIds.Count())
             {
-                throw new HttpRequestValidationException("Invalid Ids in the input");
+                throw new HttpResponseException(System.Net.HttpStatusCode.BadRequest);
             }
 
             var totalDiscount = _discountCalculators

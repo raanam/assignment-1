@@ -152,13 +152,18 @@
     <Compile Include="Services\Discount\IDiscountCalculatorService.cs" />
     <Compile Include="Services\Discount\IDiscountCalculatorResponse.cs" />
     <Compile Include="Services\Discount\DiscountCalculatorService.cs" />
+    <Compile Include="Services\UpdateCar\IUpdateCarRequest.cs" />
+    <Compile Include="Services\UpdateCar\IUpdateCarRequestMapper.cs" />
+    <Compile Include="Services\UpdateCar\IUpdateCarService.cs" />
+    <Compile Include="Services\UpdateCar\UpdateCarRequest.cs" />
+    <Compile Include="Services\UpdateCar\UpdateCarRequestMapper.cs" />
+    <Compile Include="Services\UpdateCar\UpdateCarService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\UpdateCar\" />
     <Folder Include="Views\Purchase\" />
   </ItemGroup>
   <ItemGroup>
