@@ -1,10 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using BizCover.Api.Cars.Services.AddCar;
+using BizCover.Repository.Cars;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Mvc;
+using System.Net;
+using BizCover.Api.Cars.Common;
 
 namespace BizCover.Api.Cars.Controllers
 {
     public class CarsController : ApiController
     {
+        private IAddCarService _addCarService;
+
+        public CarsController(IAddCarService addCarService)
+        {
+            _addCarService = addCarService;
+        }
+
         // Below is just the sample code from the Visual Studio Web Api Template. 
         // Feel free to replace this with whatever implementation you feel is suitable and production ready for a web api.
 
@@ -16,6 +29,13 @@ namespace BizCover.Api.Cars.Controllers
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [ValidateModel]
+        [System.Web.Mvc.HttpPost]
+        public Task<Car> Create(AddCarRequest request)
+        {
+            return _addCarService.AddCar(request);
         }
     }
 }

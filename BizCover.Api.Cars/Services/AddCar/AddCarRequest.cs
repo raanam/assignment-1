@@ -6,19 +6,19 @@ namespace BizCover.Api.Cars.Services.AddCar
     public class AddCarRequest : IAddCarRequest
     {
         [Required()]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Color { get; set; }
 
         [Required()]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string CountryManufactured { get; set; }
 
         [Required()]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Make { get; set; }
 
         [Required()]
-        [MaxLength(50)]
+        [StringLength(50)]
         public string Model { get; set; }
 
         [Required()]

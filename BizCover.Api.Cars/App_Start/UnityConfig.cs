@@ -1,7 +1,8 @@
+using BizCover.Api.Cars.Services.AddCar;
 using BizCover.Repository.Cars;
-using System.Web.Mvc;
+using System.Web.Http;
 using Unity;
-using Unity.Mvc5;
+using Unity.WebApi;
 
 namespace BizCover.Api.Cars
 {
@@ -16,10 +17,14 @@ namespace BizCover.Api.Cars
             
             // e.g. container.RegisterType<ITestService, TestService>();
             
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 
             // Repositories.
             container.RegisterType<ICarRepository, CarRepository>();
+
+            // Services.
+            container.RegisterType<IAddCarService, AddCarService>();
+            container.RegisterType<IAddCarRequestMapper, AddCarRequestMapper>();
         }
     }
 }

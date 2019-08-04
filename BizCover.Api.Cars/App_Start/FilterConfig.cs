@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using BizCover.Api.Cars.Common;
+using System.Web.Mvc;
 
 namespace BizCover.Api.Cars
 {

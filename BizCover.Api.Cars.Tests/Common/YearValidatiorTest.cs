@@ -1,11 +1,7 @@
 ﻿using BizCover.Api.Cars.Common;
+using FluentAssertions;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
 using System.ComponentModel.DataAnnotations;
 
 namespace BizCover.Api.Cars.Tests.Common

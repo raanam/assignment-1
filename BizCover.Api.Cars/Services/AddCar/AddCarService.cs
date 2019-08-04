@@ -10,15 +10,23 @@ namespace BizCover.Api.Cars.Services.AddCar
     public class AddCarService : IAddCarService
     {
         private ICarRepository _carRepository;
+        private IAddCarRequestMapper _addCarRequestMapper;
 
-        public AddCarService(ICarRepository carRepository)
+        public AddCarService(ICarRepository carRepository, IAddCarRequestMapper addCarRequestMapper)
         {
             _carRepository = carRepository;
+            _addCarRequestMapper = addCarRequestMapper;
         }
 
-        public Task<Car> AddCar(IAddCarRequest addCarRequest)
+        public async Task<Car> AddCar(IAddCarRequest addCarRequest)
         {
-            throw new NotImplementedException();
+            var request = _addCarRequestMapper.Map(addCarRequest);
+
+            var id = await _carRepository.Add(request);
+                
+            request.Id = id;
+
+            return request;
         }
     }
 }
