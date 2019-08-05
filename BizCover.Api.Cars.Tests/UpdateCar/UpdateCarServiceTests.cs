@@ -12,6 +12,7 @@ using BizCover.Repository.Cars;
 using NSubstitute;
 using BizCover.Api.Cars.CarRepositoryCache;
 using BizCover.Api.Cars.Services.UpdateCar;
+using System.Web.Http;
 
 namespace BizCover.Api.Cars.Tests.UpdateCar
 {
@@ -61,6 +62,24 @@ namespace BizCover.Api.Cars.Tests.UpdateCar
             response.Should().Be(carAfterUpdate);
             _carRepositoryCache.Received(1).InvalidateCache();
             _carRepository.Received(1).Update(Arg.Is<Car>(carAfterUpdate));
+        }
+
+        [Test]
+        public async Task Given_NonExistingCarId_ThrowsException()
+        {
+            // Arrange.
+            var car = _fixture.Create<Car>();
+            car.Id = 5;
+
+            var request = _fixture.Create<UpdateCarRequest>();
+            request.Id = 6;
+            
+            _carRepositoryCache.GetAllCars().Returns(new List<Car>() { car });
+            await _carRepository.Update(Arg.Any<Car>());
+            _requestMapper.Map(Arg.Any<UpdateCarRequest>()).Returns(car);
+
+            // Act.
+            Assert.ThrowsAsync<HttpResponseException>(async () => await _sut.Update(request));
         }
     }
 }
