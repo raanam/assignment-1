@@ -25,7 +25,7 @@ Discount calculation rule:
 3. If a car is built before January 2000, discount it by 10% 
 4. The above rules are cumulative (i.e. all of them can be applicable at the same time)
 
-# Areas of improvement
+## Areas of improvement
 1. Unit testing / Improving code coverage for certain code areas like - Caching, UpdateCar
 2. Get All Cars should have pagination
 3. Repository should have method to get car by id
@@ -35,6 +35,7 @@ Discount calculation rule:
 7. Right now update api returns Bad Request when id does not exists but without good error message
 8. Request / Response logging
 9. Correlation id for every request and response
+10. CI/CD - Possibly dockerise if ported to .net core
 
 #### NOTES
 
